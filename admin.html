@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./img/logo.png" type="image/png">
+  <title>Atmos'Home</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <link href="css/atmos.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top sidebar-toggled">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                  <img src="img/logo.png" alt="Atmos Home" class="img-fluid">
+                </div>
+                <div class="sidebar-brand-text mx-3">Atmos'<sup>Home</sup></div>
+                </a>
+        
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+        
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span id="top">Tableau de bord</span></a>
+                </li>
+        
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+        
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                Produits Atmos
+                </div>
+        
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item  ">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-balance-scale-right"></i>
+                    <span>Appareils de mesures</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Atmos Dew Drops</h6>
+                    <a class="collapse-item " href="dew1.html">Salon</a>
+                    <a class="collapse-item" href="404.html">Garage</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Atmos Dew Drop Pro</h6>
+                    <a class="collapse-item" href="404.html">Salle de bain</a>
+                    </div>
+                </div>
+        
+                </li>
+                
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                <a class="nav-link" href="admin.html">
+                    <i class="fas fa-cog"></i>
+                    <span>Paramètres Atmos Base</span></a>
+                </li>
+        
+        
+                
+        
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+        
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+        
+            </ul>
+            <!-- End of Sidebar -->
+        
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+        
+                <!-- Main Content -->
+                <div id="content">
+        
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                    </button>
+        
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+        
+        
+        
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Utilisateur</span>
+                        <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profil
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Paramètres
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Déconnexion
+                        </a>
+                        </div>
+                    </li>
+        
+                    </ul>
+        
+                </nav>
+                <!-- End of Topbar -->
+                <div class="container-fluid">
+
+                  <div class="d-sm-flex align-items-center justify-content-between ml-4 mb-4">
+                    <h2 class="mb-0 text-gray-800 font-weight-bolder">Paramètres Atmos<sup>Base</sup></h2>
+                    <span><img src="img/adminpanel.svg" alt="Panneau d'administration" class="bgImg"></span>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                      <div class="card border-bottom-primary shadow mb-4">
+                        <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Atmos DewDrop du Salon</h6>
+                          <hr>
+                          <span class="btn btn-success disabled">Sonde active</span>
+                        </div>
+                        <div class="card-body">
+                          
+                          Sonde météorologique
+                          <br>
+                          Capteurs : température, humidité
+                          <hr>
+                          <a href="#" class="btn btn-danger btn-icon-split disabled" data-toggle="modal" data-target="#DelProbe">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="text">Supprimer la sonde</span>
+                            
+                          </a>
+                          
+
+                        </div>
+                      </div>
+                    </div>
+
+                    
+                    <div class="col-xl-4 col-md-6">
+                      <div class="card border-bottom-primary shadow mb-4 ">
+                        <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Atmos DewDrop du Garage</h6>
+                          <hr>
+                          <span class="btn" id="probeActive"></span>
+                        </div>
+                        <div class="card-body">
+                          
+                          Sonde météorologique
+                          <br>
+                          Capteurs : température, humidité
+                          <hr>
+                          <a href="#" class="btn btn-icon-split" data-toggle="modal" data-target="#DelProbe" id="DelProbeBtnDisplay">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="text" id="DelProbeBtnText"></span>
+                            
+                          </a>
+                          
+                          
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6">
+                      <div class="card border-bottom-secondary shadow mb-4 ">
+                        <div class="card-body">
+                          
+                          <a href="#" class="btn btn-secondary btn-icon-split" data-toggle="modal" data-target="#AddProbe">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span class="text">Ajouter une sonde</span>
+                          </a>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                    <div class="card border-bottom-secondary shadow mb-4 ">
+                        <div class="card-body">
+
+                            <div id="mapid" style="width:100% ; height:30em;"></div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                <!-- Footer -->
+                <footer class="bg-white">
+                  <div class="container py-5">
+                    <div class="row py-4">
+                      <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                        <p class="font-italic text-muted">Atmos'fr est une entreprise spécialisée dans les objets connectés de relevés météorologiques.</p>
+                        <p class="font-italic text-muted">Propulsé par CESI Rouen</p>
+                        <ul class="list-inline mt-4">
+                          <li class="list-inline-item"><a href="https://www.instagram.com/atmos_fr/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+                          <li class="list-inline-item"><a href="https://www.twitter.com/atmos_fr/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                          <li class="list-inline-item"><a href="https://www.instagram.com/atmos_fr/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                          <li class="list-inline-item"><a href="#" target="_blank" title="Kickstarter"><i class="fab fa-kickstarter-k"></i></a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                        <a href="http://emilie.dehant.webconcepteur.fr/atmosfr"><h6 class="text-uppercase atmosfooter font-weight-bold mb-4 no-hover-line link">Atmos'fr</h6></a>
+                        <ul class="list-unstyled mb-0">
+                          <li class="mb-2"><a href="http://emilie.dehant.webconcepteur.fr/atmosfr" class="no-hover-line link">Accueil</a></li>
+                          <li class="mb-2"><a href="http://emilie.dehant.webconcepteur.fr/atmosfr" class="no-hover-line link">Produits</a></li>
+                            <li class="mb-2"><a href="http://10.176.129.94:5000/atmos/api" class="no-hover-line link">API</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <h6 class="text-uppercase font-weight-bold mb-4">Membres Atmos'fr</h6>
+                        <ul class="list-unstyled mb-0">
+                          <li class="mb-2"><a href="https://github.com/William-Langlois" class=" no-hover-line link"><i class="fab fa-github"></i> William Langlois</a></li>
+                          <li class="mb-2"><a href="https://github.com/Hopust-design" class=" no-hover-line link"><i class="fab fa-github"></i> Léo Leclerc</a></li>
+                          <li class="mb-2"><a href="https://github.com/Winona-dht" class=" no-hover-line link"><i class="fab fa-github"></i> Emilie Dehant</a></li>
+                          <li class="mb-2"><a href="https://floriaaan.alwaysdata.net" class=" no-hover-line link"><i class="fab fa-wordpress"></i> Florian Leroux</a></li>
+                        </ul>
+                      </div>
+                      
+                    </div>
+                  </div>
+              
+                  <!-- Copyrights -->
+                  <div class="bg-light py-4">
+                    <div class="container text-center">
+                      <p class="text-muted mb-0 py-2">© 2019 Atmos'fr - Tous droits réservés.</p>
+                    </div>
+                  </div>
+                </footer>
+      <!-- End of Footer -->
+            
+                </div>
+                <!-- End of Content Wrapper -->
+            
+            </div>
+            <!-- End of Page Wrapper -->
+            
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+            
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Vous vous en allez ?</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">Vous nous quittez déjà &#128533; ?</div>
+                    <div class="modal-footer">
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                      <a class="btn btn-primary" href="index.html">Déconnexion</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- DelProbe Modal-->
+              <div class="modal fade" id="DelProbe" tabindex="-1" role="dialog" aria-labelledby="DelProbe" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content" id="borderModal">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="DelProbeLabel"></h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="modal-body"><p id="DelProbeText"></p></div>
+                    <div class="modal-footer">
+                      <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Annuler</button>
+                      <a class="btn btn-danger" href="#" id="DelProbeBtn"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AddProbe Modal-->
+              <div class="modal fade" id="AddProbe" tabindex="-1" role="dialog" aria-labelledby="AddProbe" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content border-bottom-success">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="AddProbeLabel">Ajout d'une sonde</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    
+                    <div class="modal-body">Voulez-vous ajouter une sonde ?
+                      <hr>
+                      <form>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Atmos DewDrop de</span>
+                          </div>
+                          <input class="form-control form-control-lg" type="text" placeholder="Nom de la sonde" id="ProbeName" name="ProbeName">
+                        </div>
+
+
+                          <hr>
+                          <h5 class="text-xs">Coordonnées GPS</h5>
+                          <span class="center">
+                              <a href="#" class="btn btn-outline-success btn-icon-split" data-toggle="modal" data-target="#location">
+                                <span class="icon text-white-40">
+                                  <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                  <span class="text">Localiser la sonde</span>
+
+                            </a>
+                              <!--<span class="text text-muted">(optionnel)</span>-->
+                              <span id="locationTicked"></span>
+                          </span>
+
+                          <p id="locationPos" class="mt-3 ml-3"></p>
+
+                        <br>
+                          <input type="hidden" value="" id="positionX">
+                          <input type="hidden" value="" id="positionY">
+
+                        <div class="modal-footer">
+                          <button class="btn btn-outline-danger" type="button" data-dismiss="modal">Annuler</button>
+                            <input type="button" class="btn btn-success" value="Ajouter" id="btnAddProbe"/>
+                        </div>
+                      </form>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            <div class="modal fade" id="location" tabindex="-1" role="dialog" aria-labelledby="location" aria-hidden="true">
+                <div class="modal-dialog w-100" role="document">
+                    <div class="modal-content border-bottom-success" id="locationBorderModal">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="locationLabel">Localisation</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <form>
+                            <div class="modal-body">
+                                <span class="d-sm-flex align-items-center justify-content-between ml-4 mb-4">
+                                    <p>
+                                        La fonctionnalité AtmosMap permet une amélioration de l'expérience utilisateur et demande un accès à votre localisation
+                                    </p>
+                                    <img src="img/location.svg" alt="Localisation" class="LocationImg">
+                                </span>
+                                <hr>
+                                <h6 id="locationAuto">Localisation automatique</h6>
+
+                                <form>
+                                    <input type="button" class="btn btn-outline-primary" value="Valider la localisation automatique" id="locationAutoBtn"/>
+                                </form>
+                                <span id="locationAutoTicked"></span>
+                                <p id="locationAutoText" class="mt-2 ml-2"></p>
+
+
+                                <hr>
+                                <h6 id="locationManual">Localisation manuelle</h6>
+
+                                    <div class="form-group">
+                                        <label for="inputAddress">Adresse</label>
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="12 rue des Douzes">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-5">
+                                            <label for="inputCity">Ville</label>
+                                            <input type="text" class="form-control" id="inputCity" placeholder="Rouen">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="inputZip">Code postal</label>
+                                            <input type="text" class="form-control" id="inputZip" placeholder="76000">
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="inputState">Pays</label>
+                                            <select id="inputState" class="form-control">
+                                                <option selected>France</option>
+                                                <option>Allemagne</option>
+                                                <option>Belgique</option>
+                                                <option>Espagne</option>
+                                                <option>Italie</option>
+                                                <option>Suisse</option>
+                                                <option>Luxembourg</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                <input type="button" class="btn btn-outline-primary" value="Valider la localisation manuelle" id="locationManualBtn"/>
+                                <span id="locationManualTicked"></span>
+
+
+
+                                <p id="locationManualText" class="mt-2 ml-2"></p>
+                            </div>
+                            <div class="modal-footer">
+
+                                <button class="btn btn-outline-secondary" data-dismiss="modal">Annuler</button>
+                                <input type="button" class="btn btn-outline-success" value="Valider" id="LocationBtn"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+      <!-- Bootstrap core JavaScript-->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+      <!-- Core plugin JavaScript-->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+      <!-- Custom scripts for all pages-->
+      <script src="js/atmos.js"></script>
+      <script src="js/ajaxrequests4admin.js"></script>
+      <script src="js/map.js"></script>
+    
+      <!-- Page level plugins -->
+      <script src="vendor/chart.js/Chart.min.js"></script>
+
+
+  </div>
+    
+    </body>
+    
+    </html>
+    
