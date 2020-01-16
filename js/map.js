@@ -64,7 +64,7 @@ function GetProbe_measures(probes_info)
 {
     $.ajax({
         type:"GET",
-        url:"http://10.176.129.94:5000/atmos/measure/last/all",
+        url:"https://floriaaan.alwaysdata.net/atmos/measure/last/all",
         headers:{"Access-Control-Allow-Header": "*"},
         success: function(data_measures){
             data_full=new Array;
