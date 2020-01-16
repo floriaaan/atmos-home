@@ -259,7 +259,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     checkStateAndDisplay();
-  refresh();
+  //refresh();
     
     
 });
