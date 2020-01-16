@@ -31,7 +31,7 @@ $(document).ready(function() {
 function setDewDrop1(){
     $.ajax({ 
         type:"GET", // GET = requesting data
-        url:"http://floriaaan.alwaysdata.net/atmos/measure/last/1",
+        url:"https://floriaaan.alwaysdata.net/atmos/measure/last/1",
         headers: {"Access-Control-Allow-Headers": "*"},
         success: function(data) {
             if(document.getElementById("tempCardDew1").classList.contains("border-left-danger")) {

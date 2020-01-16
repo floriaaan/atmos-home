@@ -23,7 +23,7 @@ function GetProbe_pos()
 {
     $.ajax({
         type:"GET",
-        url:"http://floriaaan.alwaysdata.net/atmos/probe/",
+        url:"https://floriaaan.alwaysdata.net/atmos/probe/",
         headers:{"Access-Control-Allow-Header": "*"},
         success: function(data){
             let probes_info = [];
