@@ -32,7 +32,7 @@ $(document).ready(function() {
 function update(){
     $.ajax({ 
         type:"GET", // GET = requesting data
-        url:"http://localhost:5000/atmos/measure/1",
+        url:"http://floriaaan.alwaysdata.net/atmos/measure/1",
         headers: {"Access-Control-Allow-Headers": "*"},
         success: function(data) {
             tableUpdate(data);

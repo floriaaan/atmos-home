@@ -12,7 +12,7 @@ function addProbe(name, x, y){
 
     $.ajax({
         type:"POST",
-        url:"http://localhost:5000/atmos/probe/add/",
+        url:"http://floriaaan.alwaysdata.net/atmos/probe/add/",
         data: datas,
         headers: {
             "Access-Control-Allow-Headers": "*",
@@ -36,7 +36,7 @@ function addProbe(name, x, y){
 function delProbe(id){
     $.ajax({ 
         type:"PUT", // UPDATE
-        url:"http://localhost:5000/atmos/probe/state/change/" + id,
+        url:"http://floriaaan.alwaysdata.net/atmos/probe/state/change/" + id,
         headers: {"Access-Control-Allow-Headers": "*"},
         success: function() {
 
@@ -134,7 +134,7 @@ function delProbe(id){
 function getStateProbe(callback){
     $.ajax({ 
         type:"GET", // UPDATE
-        url:"http://localhost:5000/atmos/probe/",
+        url:"http://floriaaan.alwaysdata.net/atmos/probe/",
         headers: {"Access-Control-Allow-Headers": "*"},
         success: function(data) {
             if(data[1].active === "1") {
