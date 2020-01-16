@@ -258,8 +258,22 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    checkStateAndDisplay();
+  refresh();
+    
+    
+});
+
+function checkStateAndDisplay(){
     getStateProbe(function(state){
         if (state === 1) {
+            if(document.getElementById("DelProbeBtnDisplay").classList.contains("btn-warning")) {
+                document.getElementById("DelProbeBtnDisplay").classList.remove("btn-warning");
+            }
+
+            if(document.getElementById("DelProbeBtnDisplay").classList.contains("disabled")) {
+                document.getElementById("DelProbeBtnDisplay").classList.remove("disabled");
+            }
             document.getElementById("probeActive").classList.add("btn-success");
             document.getElementById("borderModal").classList.add("border-bottom-danger");
             document.getElementById("DelProbeBtnDisplay").classList.add("btn-danger");
@@ -271,6 +285,14 @@ $(document).ready(function() {
             $('#DelProbeBtn').text("Désactiver");
         } else {
             if (state === 0) {
+                if(document.getElementById("DelProbeBtnDisplay").classList.contains("btn-warning")) {
+                    document.getElementById("DelProbeBtnDisplay").classList.remove("btn-warning");
+                }
+
+                if(document.getElementById("DelProbeBtnDisplay").classList.contains("disabled")) {
+                    document.getElementById("DelProbeBtnDisplay").classList.remove("disabled");
+                }
+
                 document.getElementById("probeActive").classList.add("btn-danger");
                 document.getElementById("borderModal").classList.add("border-bottom-danger");
                 document.getElementById("DelProbeBtnDisplay").classList.add("btn-success");
@@ -284,12 +306,17 @@ $(document).ready(function() {
             } else {
                 document.getElementById("probeActive").classList.add("btn-warning");
                 $('#probeActive').text("Etat de la sonde inconnu");
+                $('#DelProbeBtnText').text("Inconnu");
+                document.getElementById("DelProbeBtnDisplay").classList.add("btn-warning");
+                document.getElementById("DelProbeBtnDisplay").classList.add("disabled");
             }
-            
-            
+
+
         }
     });
-  
-    
-    
-});
+}
+
+function refresh() {
+    checkStateAndDisplay();
+    setTimeout(refresh, 30000);
+}

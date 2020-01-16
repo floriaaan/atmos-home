@@ -1,4 +1,4 @@
-var mymap = L.map('mapid').setView([49.42266, 1.066265], 12);
+var mymap = L.map('mapid').setView([49.42266, 1.066265], 11);
 
 function DispMap(){
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
@@ -23,10 +23,10 @@ function GetProbe_pos()
 {
     $.ajax({
         type:"GET",
-        url:"http://10.176.129.94:5000/atmos/probe/",
+        url:"http://localhost:5000/atmos/probe/",
         headers:{"Access-Control-Allow-Header": "*"},
         success: function(data){
-            probes_info=new Array;
+            let probes_info = [];
             for(i=0;i<data.length;i++)
             {
                 DispProbe_pos(data[i]['id'],data[i]['user'],data[i]['name'],data[i]['pos_x'],data[i]['pos_y'],data[i]['active'],data[i]['error'])
